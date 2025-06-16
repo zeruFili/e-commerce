@@ -1,12 +1,13 @@
 const express = require('express');
 const app = express();
-const config = require('./config/config'); // Adjust the path as necessary
 const authRouter = require('./routes/auth.route');
 const { errorHandler, errorConverter } = require('./middleware/error'); // Adjust the path as necessary
 const ApiError = require('./utils/ApiError'); // Adjust the path as necessary
 const httpStatus = require('http-status');
 const {successHandler, errorHandlers} = require('./config/morgan');  
-
+const productRouter = require('./routes/product.route');
+const cartRouter = require('./routes/cart.route');
+ 
 app.use(successHandler);
 app.use(errorHandlers);
 
@@ -15,7 +16,8 @@ app.use(express.json());
 
 // Define API routes
 app.use('/api/auth', authRouter);
-
+app.use('/api/product', productRouter);
+app.use('/api/cart', cartRouter);
 
 
 // Handle unknown routes
