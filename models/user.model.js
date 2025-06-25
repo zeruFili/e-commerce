@@ -1,39 +1,5 @@
 const mongoose = require("mongoose");
 
-<<<<<<< HEAD
-const userSchema = new mongoose.Schema(
-	{
-		email: {
-			type: String,
-			required: true,
-			unique: true,
-		},
-		password: {
-			type: String,
-			required: true,
-		},
-		name: {
-			type: String,
-			required: true,
-		},
-		lastLogin: {
-			type: Date,
-			default: Date.now,
-		},
-		isVerified: {
-			type: Boolean,
-			default: false,
-		},
-		resetPasswordToken: String,
-		resetPasswordExpiresAt: Date,
-		verificationToken: String,
-		verificationTokenExpiresAt: Date,
-	},
-	{ timestamps: true }
-);
-
-=======
-
 const userSchema = new mongoose.Schema(
   {
     first_name: {
@@ -87,7 +53,7 @@ const userSchema = new mongoose.Schema(
 );
 
 
->>>>>>> origin/payment
+
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
